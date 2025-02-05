@@ -1,0 +1,27 @@
+{
+    "header": {
+        "about-me": "about me",
+        "skills": "skills",
+        "projects": "projects",
+        "contact-me": "contact me"
+    },
+    "about-me": {
+        "title": "About Me",
+        "text": "My name is <span class=\"name\">Alejandro Araujo</span>, I’m from Argentina, and I graduated as a <span class=\"highlight\">University Technician in Networks and Telecommunications</span>. Drawing is my hobby, which led me to study <span class=\"highlight\">Graphic Design</span> for 4 years. I am currently expanding my knowledge as a <span class=\"highlight\">Front-End Developer</span> and looking for new job opportunities."
+    },
+    "skills": {
+        "title": "Skills",        
+        "react-native": "React Native (learning)",
+        "postgresql": "PostgreSQL (learning)"        
+    },
+    "projects": {
+        "title": "Projects"
+    },
+    "contact-me": {
+        "title": "Contact Me",
+        "whatsapp": "Click to copy to clipboard", 
+        "email": "Click to copy to clipboard",        
+        "download-cv": "View Resume"
+    }
+ 
+}

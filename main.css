@@ -1,0 +1,906 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: auto; /* Quitamos el scroll-behavior en html */
+    /* Este estilo desactiva el desplazamiento suave en el navegador, ya que ahora lo estamos controlando manualmente con JavaScript. */
+}
+
+:root {
+    --ff-title: 'Poppins', sans-serif;
+    --ff-text: 'Roboto', sans-serif;
+    --clr-black: #121212;
+    --clr-white: #EAEAEA;
+    --clr-primary: #28a745;
+    --clr-primary-transparent: rgba(40, 167, 69, .5);
+    --clr-black-opacity: rgba(18, 18, 18, 0.6);  /* Color negro con opacidad */
+    --clr-white-opacity: rgba(234, 234, 234, 0.6);  /* Color blanco con opacidad */
+}
+
+
+.loader {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    inset: 0; /* Esto es un atajo para establecer top: 0;, right: 0;, bottom: 0; y left: 0;, lo que coloca el .loader ocupando todo el espacio de la ventana. */
+    z-index: 200;    
+}
+
+
+
+.loader-bar {
+    flex: 1; /* Hace que la barra del loader ocupe todo el espacio disponible dentro del contenedor .loader, estirándose en función de su espacio. */
+    background-color: var(--clr-primary);
+}
+
+
+html {
+    overflow: auto; /* Fuerza el scrollbar en toda la página */
+  }
+  
+body::-webkit-scrollbar {
+    width: 8px; /* Controla el ancho del scrollbar */
+  }
+  
+
+
+
+
+
+
+/* HEADER */
+
+
+header .logo img {
+    margin-left: 10px;
+    width: 40px;
+    height: auto;
+}
+
+nav {
+    font-size: 20px;
+    width: 100%;
+    height: 70px;
+    /* background-color: var(--clr-black); */
+    color: var(--clr-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    transition: all 1.5s ease; /* Agregamos transición para suavizar el cambio */    
+    backdrop-filter: blur(10px); /* Aplica el desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+    border-bottom: 1px solid var(--clr-primary); /* Línea verde debajo del header */
+    background-color: var(--clr-black-opacity); /* Usamos la variable con opacidad */
+}
+
+.navbar-links{
+    display: flex; /* Usamos flexbox para poner los enlaces en una fila */
+    list-style: none; /* Eliminamos los puntos de lista */    
+    gap: 20px; /* Añadimos espacio entre los enlaces */    
+}
+
+.navbar-links li a {    
+    text-decoration: none;
+    color: var(--clr-white);    
+    padding: 10px 20px;
+    font-family: var(--ff-title);
+    font-variant: small-caps;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navbar-links li a i {
+    display: none;
+    font-size: 24px; /* Ajusta el tamaño del icono */
+    margin-right: 10px; /* Un pequeño espacio entre el icono y el texto */
+}
+
+/* Modo Oscuro: Cambiar color de los enlaces al hacer hover */
+nav .navbar-links li a:hover {
+    color: var(--clr-primary); /* Cambia el color a verde en modo oscuro */
+}
+
+.light nav .navbar-links li a:hover {
+    color: var(--clr-primary); /* Cambia el color a verde en modo claro */
+}
+
+.navbar-links li a::after {
+    content: "";
+    position: absolute;
+    /* bottom: -2px; */
+    left: 0;
+    width: 0;
+    height: 2px; /* Alto del borde inferior */
+    background-color: var(--clr-primary); /* Color del borde (verde) */
+    transition: width 0.3s ease; /* Animación de la expansión del borde */
+    transform: translateY(32px); /* Usar translateY para mover la línea hacia arriba */
+}
+
+.navbar-links li a:hover::after {
+    width: 100%; /* Al hacer hover, el borde inferior se expande a todo el ancho */
+}
+
+
+
+
+
+
+
+.navbar-links li a.active {
+    color: var(--clr-primary);
+    font-weight: bold;
+}
+
+.light nav .navbar-links li a.active {
+    color: var(--clr-primary);
+}
+
+
+
+
+
+
+
+
+
+
+.navbar-options {
+    display: flex;
+    align-items: center;  /* Alinea verticalmente los elementos */
+    gap: 15px;  /* Espacio entre los botones de idioma y tema */
+}
+
+.lang-button {
+    width: 35px; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    cursor: pointer; /* Asegura que se vea como un botón */
+}
+
+.lang-button:hover{
+    scale: 1.1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#toggle {
+    display: none;
+}
+
+#label_toggle {
+    margin-right: 20px;
+    display: inline-flex;
+    font-size: 1.5em;
+    color: var(--clr-white);
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    transition: color .3s ease;
+}
+
+#toggle:checked + #label_toggle {
+    transform: translateX(6px);
+}
+
+#label_toggle i {
+    transition: color .3s ease; /* Transición suave al cambiar de color */
+}
+
+#toggle:checked + #label_toggle i.fa-sun {
+    display: none; /* Esconde el sol cuando el modo claro está activado */
+}
+
+#toggle:checked + #label_toggle i.fa-moon {
+    display: inline-flex; /* Muestra la luna cuando el modo claro está activado */
+}
+
+/* Hover sobre el sol (modo oscuro) */
+#label_toggle i.fa-sun:hover {
+    color: var(--clr-primary); /* Cambia el color del sol cuando se hace hover */
+}
+
+/* Hover sobre la luna (modo claro) */
+#label_toggle i.fa-moon:hover {
+    color: var(--clr-primary); /* Cambia el color de la luna cuando se hace hover */
+}
+
+/* Transición cuando el checkbox está marcado (modo claro) */
+.light nav {
+    background-color: var(--clr-white-opacity);
+}
+
+.light nav .navbar-links li a {
+    color: var(--clr-black);
+    font-weight: bold;
+}
+
+.light #label_toggle {
+    color: var(--clr-black);
+}
+
+.light .sections {
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+}
+
+
+
+
+
+/* SECTIONS */
+
+
+/* El fondo y color predeterminado para el modo oscuro */
+.sections {
+    background-color: var(--clr-black); /* Fondo negro */
+    color: var(--clr-white); /* Texto blanco */
+    transition: all 1.5s ease;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll; /* Este estilo desactiva el desplazamiento suave en el navegador, ya que ahora lo estamos controlando manualmente con JavaScript.*/
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory; /* Aplica un comportamiento de "snap" vertical, lo que significa que el desplazamiento se detendrá en cada sección (de arriba a abajo) cuando se haga scroll. */
+}
+
+
+.sections::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Estilo de las secciones */
+.sections > section {
+    flex: 0 0 100vh; /* Cada sección ocupa el 100% de la altura de la ventana del navegador. */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    scroll-snap-align: start; /* Hace que cada sección se alinee al principio de la pantalla cuando el scroll se detiene. */
+}
+
+.title {
+    writing-mode: vertical-lr; /* Texto en modo vertical de abajo hacia arriba */
+    transform: rotate(180deg); 
+    font-family: var(--ff-title);
+    font-size: 6rem;
+    color: transparent; /* Texto transparente */
+    -webkit-text-stroke: 1px var(--clr-primary);
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+/* SECTION ABOUT ME */
+
+
+.aboutMeContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 60%;
+    flex-wrap: wrap;
+}
+
+.textAndAvatar {
+    display: flex;
+    flex-direction: column; /* Coloca la imagen encima del texto */
+    align-items: center; /* Centra la imagen y el texto */
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.avatar {
+    width: 250px; /* Tamaño ajustado de la imagen */
+    height: 250px; /* Mantener la proporción */
+    margin-bottom: 20px;
+}
+
+.descriptionText {
+    font-family: var(--ff-text);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    max-width: 600px;
+    color: var(--clr-white);    
+    word-wrap: break-word; /* Permite que las palabras largas se dividan correctamente */
+    white-space: normal; /* Permite el ajuste de texto */ 
+}
+
+.name {
+    position: relative;  /* Necesario para que la flecha se posicione correctamente */
+    display: inline-block;
+}
+
+.name::before {
+    content: "";
+    position: absolute;
+    top: -85px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 80px;
+    background: url('img/arrow.png') no-repeat center center;
+    background-size: contain;
+    transform-origin: center center;  /* El origen de rotación es el centro de la flecha */
+}
+
+.light .descriptionText {
+    color: var(--clr-black); /* Color negro para el texto en modo claro */
+}
+
+.highlight {
+    color: var(--clr-primary);
+}
+
+
+
+
+/* SECTION SKILLS */
+
+
+
+.skillsContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    flex-wrap: wrap;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column; /* Coloca la imagen encima del texto */
+    align-items: center; /* Centra la imagen y el texto */
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.icons {
+    display: grid;
+    grid-template-columns: repeat(5, 100px); /* 5 iconos por fila */
+    gap: 20px;
+    justify-content: center;
+  }
+  
+ 
+.iconWrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+  
+
+.iconWhite {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+  
+
+.iconColor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+  
+.iconWrapper:hover .iconWhite {
+    opacity: 0;
+}
+  
+.iconWrapper:hover .iconColor {
+    opacity: 1;
+}
+  
+.tooltip {
+    position: absolute;
+    top: -30px; /* Ajusta esto si el texto se ve muy pegado al icono */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+    padding: 5px 10px;
+    border-radius: 5px;    
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    font-family: var(--ff-text);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.iconWrapper:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.light .tooltip{
+    background-color: var(--clr-black);
+    color: var(--clr-white);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION PROJECTS */
+
+
+.projectsContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    position: relative;
+    flex-direction: row; /* ULTIMO */
+}
+
+.sliderContent {
+    position: relative;
+    width: 100%;
+}
+
+
+
+
+.slider-video{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    line-height: 0;
+    border-radius: 20px;
+}
+
+.swiper-slide{    
+    max-width: 800px;
+    width: 100%;
+    transition: width 700ms ease;    
+}
+
+
+
+.swiper-slide video{
+    width: 100%;
+    height: auto;
+}
+
+.swiper {
+    cursor: grab;
+}
+
+.swiper:active {
+    cursor: grabbing;
+}
+
+
+.swiper-btns {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  /* Centra los botones verticalmente dentro del contenedor */
+    top: 40%; /* Ajusta la posición vertical de los botones manualmente */    
+}
+
+
+[class*="swiper-button-"]{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    margin-top: 0;
+    top: 0;
+    --swiper-navigation-size: 20px;
+}
+
+[class*="swiper-button-"]:hover{
+    transform: scale(1.12);
+}
+
+.swiper-button-disabled{
+    display: none;
+}
+
+
+/* Estilo para los contenedores de tags */
+.tags {
+    display: flex;
+    justify-content: center; /* Centra los tags */
+    flex-wrap: wrap; /* Permite que los tags se ajusten si no caben en una línea */
+    gap: 10px; /* Espacio entre cada tag */
+    margin-top: 10px; /* Separación entre el video y los tags */
+}
+
+/* Estilo para cada tag individual */
+.tag {
+    border: 2px solid var(--clr-primary); /* Contorno con color personalizado */
+    color: var(--clr-primary); /* Texto con el mismo color del contorno */
+    padding: 5px 10px;
+    border-radius: 15px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de la fuente */
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 10px;    
+}
+
+.links a {
+    display: flex;             /* Flex para el icono, aunque es redundante en este caso */
+    align-items: center;       /* Alineación vertical */
+    justify-content: center;   /* Alineación horizontal */
+    text-decoration: none;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.links i {
+    font-size: 24px;  /* Hace el icono más pequeño */
+    color: var(--clr-white);
+    transition: color 0.3s ease; /* Añade una transición suave para el color */
+    cursor: pointer;
+}
+
+.light .links i {
+    color: var(--clr-black); /* Color negro para el texto en modo claro */
+}
+
+.links .large-eye {
+    font-size: 30px;  /* Solo hace más grande el ícono del ojo */
+}
+
+.links a:hover i {
+    color: var(--clr-primary);
+}
+
+
+
+
+/* SECTION CONTACT ME */
+
+
+
+
+
+
+
+.contactMeContent {
+    display: flex;
+    align-items: center;  /* Alinea los elementos al principio */
+    justify-content: space-between;  /* Se asegura de que el título quede a la izquierda y los botones a la derecha */
+    width: 60%;
+    flex-wrap: wrap;
+}
+
+.buttonsContent {
+    display: flex;
+    flex-direction: column; /* Los iconos estarán en columna */    
+    gap: 50px;  /* Espacio entre los iconos y el botón */
+    height: 100%;  /* Asegura que el contenedor ocupe toda la altura disponible */
+    align-items: center;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.socialButtons {
+    display: flex;   
+    gap: 50px;
+}
+
+.socialBtn {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.socialBtn:hover {
+    transform: scale(1.1);
+}
+
+
+.socialBtnWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
+.tooltip2 {
+    visibility: hidden; /* Oculto por defecto */
+    position: absolute;
+    top: -50px;  /* Coloca el tooltip arriba del ícono */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--ff-text);
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.light .tooltip2{
+    background-color: var(--clr-black);
+    color: var(--clr-white);
+}
+
+.socialBtnWrapper:hover .tooltip2 {
+    visibility: visible;  /* Se muestra cuando el mouse está sobre el ícono */
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+.downloadCV {
+    padding: 30px 120px;
+    font-size: 1rem;
+    background-color: #ee7f00; /* Usa el color principal para el fondo */
+    color: white;    
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.downloadCV:hover {
+    background-color: #c46800;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1700px) {
+
+    .projectsContent {
+        flex-direction: column;
+        align-items: center;  /* Cambié de flex-start a center para centrar los elementos */
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .projectsContent .title {
+        margin-bottom: 20px;
+        text-align: center;
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+        font-size: 3rem;
+        width: 100%;  /* Asegura que el título ocupe el 100% del ancho para que se pueda centrar */
+    }
+
+    .sliderContent {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1250px) {
+    .loader-bar {
+        height: 4px;
+    }
+
+    .aboutMeContent {
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        flex-direction: column; /* Coloca los elementos en columna */
+        align-items: center; /* Alinea los elementos al centro */
+    }
+
+    .skillsContent {
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        flex-direction: column; /* Coloca los elementos en columna */
+        align-items: center; /* Alinea los elementos al centro */
+    }
+    
+    .title {
+        writing-mode: horizontal-tb; /* Cambiar el texto a horizontal */
+        transform: rotate(0); /* Eliminar la rotación */
+        font-size: 3rem; /* Ajustar el tamaño del texto para que sea más adecuado en pantallas pequeñas */
+        margin-bottom: 30px; /* Añadir algo de espacio debajo del texto vertical */
+    }
+
+    .avatar {
+        width: 150px; /* Ajustar el tamaño de la imagen en pantallas pequeñas */
+        height: 150px; /* Mantener la proporción */
+        margin-bottom: 20px; /* Añadir algo de espacio debajo de la imagen */
+    }
+
+    /* Ajustar el texto de descripción */
+    .descriptionText {
+        font-size: 1rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+        max-width: 80%; /* El texto ocupará todo el ancho disponible */
+        padding: 0 20px; /* Añadir algo de relleno a los lados */       
+        word-wrap: break-word; /* Asegurarse de que las palabras largas se ajusten */
+        white-space: normal; /* Asegura que el texto fluya naturalmente */        
+    }
+
+    .name::before {
+        left: 40%; /* La flecha se coloca más centrada para pantallas medianas */
+        transform: rotate(10deg);
+    }
+
+    .icons {
+        grid-template-columns: repeat(4, 100px); /* 4 iconos por fila */
+    }
+
+    .contactMeContent {
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        flex-direction: column; /* Coloca los elementos en columna */
+        align-items: center; /* Alinea los elementos al centro */
+    }
+
+}
+
+
+@media screen and (max-width: 1200px) {
+
+    .aboutMeContent {
+        width: 80%; /* Se ajusta al 80% del ancho de la pantalla */
+    }
+
+    .name::before {
+        left: 30%; /* Coloca la flecha al principio del nombre */
+        top: -95px; /* Ajusta la distancia si es necesario */
+    }
+
+    .navbar-links {
+        gap: 0;  /* Eliminar el espacio entre los iconos */
+    }    
+
+    .navbar-links li a .link-text {
+        display: none; /* Oculta el texto */
+    }
+
+    .navbar-links li a i {
+        font-size: 28px; /* Ajusta el tamaño de los iconos si es necesario */
+        display: inline-block; /* Muestra los iconos */      
+
+    }
+
+    .navbar-links li a .link-text {
+        display: none;
+    }
+
+    
+
+    /* No mostrar el subrayado en los iconos */
+    .navbar-links li a::after {
+        display: none; /* Elimina el subrayado en los iconos */
+    }
+
+    .navbar-links li a .fa-check {
+        font-size: 36px; /* Ajusta este tamaño a lo que prefieras */
+    }
+   
+
+}
+
+
+
+
+@media screen and (max-width: 900px) {    
+
+    .name::before {
+        left: -25%; /* Coloca la flecha al principio del nombre */
+    }
+
+    .icons {
+        grid-template-columns: repeat(3, 100px); /* 3 iconos por fila */
+    }
+
+    .socialBtn {
+        width: 80px; /* Tamaño más pequeño */
+        height: 80px;
+    }
+    
+    .buttonsContent {         
+        gap: 20px;
+        
+    }
+    
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 680px) {    
+
+    .name::before {
+        left: -50%; /* Coloca la flecha al principio del nombre */
+        transform: rotate(-5deg);
+        top: -85px;
+    }
+
+    .navbar-links li a {
+        padding: 0 6px;
+        margin: 0;   /* Eliminar margen adicional */
+    }
+
+}

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <title>Alejandro Araujo Portfolio</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader" aria-hidden="true">
+        <div class="loader-bar"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo" />
+            </div>
+
+            <ul class="navbar-links">                      
+                <li><a href="#aboutMe"><i class="fas fa-user"></i><span class="link-text" data-section="header" data-value="about-me">about me</span></a></li> 
+                <li><a href="#skills"><i class="fas fa-check"></i><span class="link-text" data-section="header" data-value="skills">skills</span></a></li> 
+                <li><a href="#projects"><i class="fas fa-puzzle-piece"></i><span class="link-text" data-section="header" data-value="projects">projects</span></a></li> 
+                <li><a href="#contactMe"><i class="fas fa-phone"></i><span class="link-text" data-section="header" data-value="contact-me">contact me</span></a></li>                
+            </ul>
+            <div class="navbar-options">
+               
+                <img src="img/es.png" alt="Idioma Español" class="lang-button" id="btn-es" data-language="es">
+                <img src="img/en.png" alt="Idioma Inglés" class="lang-button" id="btn-en" style="display: none;" data-language="en">
+
+                <input type="checkbox" id="toggle">
+                <label for="toggle" id="label_toggle">
+                    <i class="fa-solid fa-sun"></i>
+                </label>              
+                
+            </div>
+
+        </nav>
+    </header>
+    
+    <div class="sections">
+        <section id="aboutMe">
+            <div class="aboutMeContent">
+                <div class="title" data-section="about-me" data-value="title">About Me</div>
+                <div class="textAndAvatar">
+                    <img src="img/avatar.png" alt="Avatar" class="avatar">
+                    <p class="descriptionText" data-section="about-me" data-value="text">My name is <span class="name">Alejandro Araujo</span>, I’m from Argentina, and I graduated as a <span class="highlight">University Technician in Networks and Telecommunications</span>. Drawing is my hobby, which led me to study <span class="highlight">Graphic Design</span> for 4 years. I am currently expanding my knowledge as a <span class="highlight">Front-End Developer</span> and looking for new job opportunities.</p>                 
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="skillsContent">
+                <div class="title" data-section="skills" data-value="title">Skills</div>
+                <div class="icons">
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/html_white.png" alt="HTML" class="iconWhite">
+                            <img src="img/html_color.png" alt="HTML" class="iconColor">
+                            <div class="tooltip">HTML</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/css_white.png" alt="CSS" class="iconWhite">
+                            <img src="img/css_color.png" alt="CSS" class="iconColor">
+                            <div class="tooltip">CSS</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/javascript_white.png" alt="JavaScript" class="iconWhite">
+                            <img src="img/javascript_color.png" alt="JavaScript" class="iconColor">
+                            <div class="tooltip">JavaScript</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/react_white.png" alt="React" class="iconWhite">
+                            <img src="img/react_color.png" alt="React" class="iconColor">
+                            <div class="tooltip">React</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/materialui_white.png" alt="Material UI" class="iconWhite">
+                            <img src="img/materialui_color.png" alt="Material UI" class="iconColor">
+                            <div class="tooltip">Material UI</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/gsap_white.png" alt="GSAP" class="iconWhite">
+                            <img src="img/gsap_color.png" alt="GSAP" class="iconColor">
+                            <div class="tooltip">GSAP</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/illustrator_white.png" alt="Illustrator" class="iconWhite">
+                            <img src="img/illustrator_color.png" alt="Illustrator" class="iconColor">
+                            <div class="tooltip">Illustrator</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/photoshop_white.png" alt="Photoshop" class="iconWhite">
+                            <img src="img/photoshop_color.png" alt="Photoshop" class="iconColor">
+                            <div class="tooltip">Photoshop</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/indesign_white.png" alt="InDesign" class="iconWhite">
+                            <img src="img/indesign_color.png" alt="InDesign" class="iconColor">
+                            <div class="tooltip">InDesign</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/blender_white.png" alt="Blender" class="iconWhite">
+                            <img src="img/blender_color.png" alt="Blender" class="iconColor">
+                            <div class="tooltip">Blender</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/after_effects_white.png" alt="After Effects" class="iconWhite">
+                            <img src="img/after_effects_color.png" alt="After Effects" class="iconColor">
+                            <div class="tooltip">After Effects</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/premiere_pro_white.png" alt="Premiere Pro" class="iconWhite">
+                            <img src="img/premiere_pro_color.png" alt="Premiere Pro" class="iconColor">
+                            <div class="tooltip">Premiere Pro</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/audacity_white.png" alt="Audacity" class="iconWhite">
+                            <img src="img/audacity_color.png" alt="Audacity" class="iconColor">
+                            <div class="tooltip">Audacity</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/react_native_white.png" alt="React Native" class="iconWhite">
+                            <img src="img/react_native_color.png" alt="React Native" class="iconColor">
+                            <div class="tooltip" data-section="skills" data-value="react-native">React Native (learning)</div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="iconWrapper">
+                            <img src="img/postgre_sql_white.png" alt="PostgreSQL" class="iconWhite">
+                            <img src="img/postgre_sql_color.png" alt="PostgreSQL" class="iconColor">
+                            <div class="tooltip" data-section="skills" data-value="postgresql">PostgreSQL (learning)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        
+        <section id="projects">
+
+            <div class="projectsContent">
+                <div class="title" data-section="projects" data-value="title">Projects</div>
+
+                    <div class="sliderContent">                       
+
+                        <div class="swiper-btns">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                        
+                        
+                        <div class="swiper">
+                            
+                            <div class="swiper-wrapper">                        
+
+                                <div class="swiper-slide">
+                                    
+                                    <!-- <h3><span>Hotelia app</span></h3> -->
+                                    <div class="slider-video">                                
+                                        <video class="swiper-video" src="videos/hotelia.mp4" type="video/mp4"></video>                                
+                                    </div>                                
+                                    <div class="tags">                                    
+                                        <span class="tag">React</span>
+                                        <span class="tag">CSS</span>
+                                        <span class="tag">Material UI</span>
+                                        <span class="tag">Redux Toolkit</span>
+                                    </div>
+                                    <div class="links">
+                                        <a href="https://github.com/alejandroarielaraujo/hotelia" target="_blank">
+                                            <i class="fab fa-github"></i>                                        
+                                        </a>
+                                        <a href="https://hoteliapage.netlify.app/" target="_blank">
+                                            <i class="material-icons large-eye">visibility</i>                                      
+                                        </a>                                    
+                                    </div>                                
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="slider-video">                 
+                                        <video class="swiper-video" src="videos/urbanfit.mp4" type="video/mp4"></video>                                
+                                    </div>
+                                    <div class="tags">                                    
+                                        <span class="tag">React</span>
+                                        <span class="tag">CSS</span>
+                                        <span class="tag">Firebase</span>
+                                    </div>
+                                    <div class="links">
+                                        <a href="https://github.com/alejandroarielaraujo/urbanfit" target="_blank">
+                                            <i class="fab fa-github"></i>                                        
+                                        </a>
+                                        <a href="https://urbanfitpage.netlify.app/" target="_blank">
+                                            <i class="material-icons large-eye">visibility</i>                                      
+                                        </a>                                    
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="slider-video">                                
+                                        <video class="swiper-video" src="videos/cinebox.mp4" type="video/mp4"></video>                                
+                                    </div>
+                                    <div class="tags">                                    
+                                        <span class="tag">React</span>
+                                        <span class="tag">CSS-in-JS</span>
+                                    </div>
+                                    <div class="links">
+                                        <a href="https://github.com/alejandroarielaraujo/appcinebox" target="_blank">
+                                            <i class="fab fa-github"></i>                                        
+                                        </a>
+                                        <a href="https://appcinebox.netlify.app" target="_blank">
+                                            <i class="material-icons large-eye">visibility</i>                                      
+                                        </a>                                    
+                                    </div>  
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="slider-video">                                
+                                        <video class="swiper-video" src="videos/misery.mp4" type="video/mp4"></video>                                
+                                    </div>
+                                    <div class="tags">                                    
+                                        <span class="tag">InDesign</span>
+                                        <span class="tag">Illustrator</span>
+                                        <span class="tag">Photoshop</span>
+                                    </div>
+                                    <div class="links">
+                                        <a href="https://www.behance.net/gallery/218470069/Complete-editorial-project-reissue-of-Misery" target="_blank">                                        
+                                                <i class="fab fa-behance"></i>                                                                             
+                                        </a>                                                                    
+                                    </div>                                
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="slider-video">                                
+                                        <video class="swiper-video" src="videos/libertadreligiosa.mp4" type="video/mp4"></video>                                
+                                    </div>
+                                    <div class="tags">                                    
+                                        <span class="tag">Illustrator</span>
+                                        <span class="tag">Photoshop</span>
+                                    </div>
+                                    <div class="links">                                        
+                                        <a href="https://www.behance.net/gallery/218432219/Poster-system-Religious-freedom" target="_blank">                                        
+                                                <i class="fab fa-behance"></i>                                                                             
+                                        </a>                                                                    
+                                    </div>  
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="slider-video">                                
+                                        <video class="swiper-video" src="videos/resiliencia.mp4" type="video/mp4"></video>                                
+                                    </div>
+                                    <div class="tags">                                    
+                                        <span class="tag">InDesign</span>
+                                        <span class="tag">SketchUp</span>
+                                        <span class="tag">Photoshop</span>
+                                    </div>
+                                    <div class="links">
+                                        <a href="https://www.behance.net/gallery/218502485/Learning-from-Mistakes-A-Resilience-Project" target="_blank">                                        
+                                                <i class="fab fa-behance"></i>                                                                             
+                                        </a>                                                                    
+                                    </div>  
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="slider-video">                                
+                                        <video class="swiper-video" src="videos/kombucha.mp4" type="video/mp4"></video>                                
+                                    </div>
+                                    <div class="tags">                                    
+                                        <span class="tag">Illustrator</span>
+                                        <span class="tag">Photoshop</span>
+                                    </div>
+                                    <div class="links">
+                                        <a href="https://www.behance.net/gallery/218515849/Target-of-a-divine-natural-beverage-Kombucha" target="_blank">                                        
+                                                <i class="fab fa-behance"></i>                                                                             
+                                        </a>                                                                    
+                                    </div>  
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                </div>   
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section id="contactMe">
+            <div class="contactMeContent">
+                <div class="title" data-section="contact-me" data-value="title">Contact Me</div>
+                <div class="buttonsContent">
+                    <div class="socialButtons">
+                        <div class="socialBtnWrapper">
+                            <a href="https://www.linkedin.com/in/alejandro-araujo-827b7634a/" target="_blank">
+                                <img src="img/iconLinkedIn.png" alt="LinkedIn" class="socialBtn" id="linkedinBtn">
+                            </a>
+                        </div>
+                        <div class="socialBtnWrapper">
+                            <img src="img/iconWhatsApp.png" alt="WhatsApp" class="socialBtn" id="whatsappBtn">
+                            <span class="tooltip2" id="tooltipWhatsapp" data-section="contact-me" data-value="whatsapp">Click to copy to clipboard</span>
+                        </div>                        
+                        <div class="socialBtnWrapper">
+                            <img src="img/iconMail.png" alt="Mail" class="socialBtn" id="mailBtn">
+                            <span class="tooltip2" id="tooltip" data-section="contact-me" data-value="email">Click to copy to clipboard</span>
+                        </div>
+                    </div>
+                    <button class="downloadCV" onclick="window.open('docs/Resume-AlejandroAraujo-EN.pdf', '_blank');" id="downloadCvButton" data-section="contact-me" data-value="download-cv">View Resume</button>
+
+
+                    </div>
+                    
+                    
+                                    
+                </div>  
+                
+               
+
+            </div>
+
+
+          
+
+        </section>
+
+
+        
+    
+
+    </div>
+
+
+   
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/split-type@latest"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+
+
+</html>

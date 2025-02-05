@@ -1,0 +1,26 @@
+{
+    "header": {
+        "about-me": "sobre mí",
+        "skills": "habilidades",
+        "projects": "proyectos",
+        "contact-me": "contáctame"
+    },
+    "about-me": {
+        "title": "Sobre mí",
+        "text": "Mi nombre es <span class=\"name\">Alejandro Araujo</span>, soy de Argentina y me gradué como <span class=\"highlight\">Técnico Universitario en Redes y Telecomunicaciones</span>. Dibujar es mi hobby, lo que me llevó a estudiar <span class=\"highlight\">Diseño Gráfico</span> durante 4 años. Actualmente estoy ampliando mis conocimientos como <span class=\"highlight\">Desarrollador Front-End</span> y busco nuevas oportunidades laborales."
+    },
+    "skills": {
+        "title": "Habilidades",        
+        "react-native": "React Native (aprendiendo)",
+        "postgresql": "PostgreSQL (aprendiendo)"        
+    },
+    "projects": {
+        "title": "Proyectos"
+    },
+    "contact-me": {
+        "title": "Contáctame",
+        "whatsapp": "Click para copiar al portapapeles", 
+        "email": "Click para copiar al portapapeles",        
+        "download-cv": "Ver Curriculum Vitae"
+    }
+}
