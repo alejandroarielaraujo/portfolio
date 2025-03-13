@@ -244,11 +244,11 @@ langButtons.forEach((button) => {
                 // Cambia el enlace del botón de ver CV dependiendo del idioma
                 if (button.dataset.language === 'es') {
                     downloadCvButton.onclick = function() {
-                        window.open('docs/CurriculumVitae-AlejandroAraujo-ES.pdf', '_blank');
+                        window.open('docs/CV-AlejandroAraujo.pdf', '_blank');
                     };
                 } else if (button.dataset.language === 'en') {
                     downloadCvButton.onclick = function() {
-                        window.open('docs/Resume-AlejandroAraujo-EN.pdf', '_blank');
+                        window.open('docs/ResumeAlejandroAraujo.pdf', '_blank');
                     };
                 }
             })
