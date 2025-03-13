@@ -248,7 +248,7 @@ langButtons.forEach((button) => {
                     };
                 } else if (button.dataset.language === 'en') {
                     downloadCvButton.onclick = function() {
-                        window.open('docs/ResumeAlejandroAraujo.pdf', '_blank');
+                        window.open('docs/ResumeAraujoAlejandro.pdf', '_blank');
                     };
                 }
             })
